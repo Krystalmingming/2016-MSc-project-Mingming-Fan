@@ -1,0 +1,17 @@
+import csv
+import glob, os
+def processData():
+	ride_per_day_testFile = open("/Users/Krystal/Documents/MSc project/intermediate data results/ride_per_day_monthly_intermediate_result_13_12", "w")
+	trip_data_file = open("/Users/Krystal/Documents/MSc project/dataset/dataset from NYC website /yellow_tripdata_2013-12.csv","rb")
+	print("successfully open the file")
+	reader = csv.reader(trip_data_file)
+
+	for line in reader:
+		if len(line)!=0:
+			line1 = line[1].split(' ')
+			line2 = line1[0] # to extract the date and ignore the specific time
+			if(line2!="pickup_datetime"):
+				print(line2+'\n')
+				ride_per_day_testFile.write(line2 + '\n')
+if __name__ == '__main__':
+	processData()

@@ -11,10 +11,10 @@ colnames(data) <- c("y","x1")
 pre.period <- as.Date(c("2015-04-01", "2015-07-31"))
 post.period <- as.Date(c("2015-08-01", "2015-12-20"))
 impact <- CausalImpact(data, pre.period, post.period, model.args = list(niter = 5000,nseasons = 7))
-plot(impact)
+#plot(impact)
 #plot(impact, c("cumulative"))
-#plot(impact,c("original"))
+plot(impact,c("original"))
 #plot(impact,c("pointwise"))
 summary(impact)
 summary(impact, "report")
-
+#impact$series
